@@ -1,0 +1,16 @@
+button{
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin: 0;
+}
+.url-card{
+    margin: 10px;
+    background-color: white;
+    padding: 5px 5px 5px 15px;
+    border-radius: 20px;
+}
+p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;    
+}

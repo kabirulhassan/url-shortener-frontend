@@ -1,0 +1,89 @@
+.shortener{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content:end;
+    background-color: black;
+    height: 100%;
+    padding-bottom: 4rem;
+}
+.shortener>h2{
+    color: #ffcd57;
+    text-align: left;
+    position: relative;
+    justify-self: center;
+    align-self: center;
+    padding: 20px 0;
+}
+
+.tagline{
+    color: white;
+    font-size: 3rem;
+    padding: 20px 0;
+    word-break: keep-all;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+.url-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.url-box{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    border-radius: 30px;
+    background-color: white;
+    justify-content: space-between;
+}
+
+.url-box>input{
+    width: 90%;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    padding-left: 2rem;
+}
+.url-box>a{
+    vertical-align: middle;
+    max-width: 90%;
+    margin: auto 5px;
+    color: black;
+    padding-left: 2rem;
+    word-break: keep-all;
+}
+
+
+.short-btn{
+    height: 50px;
+    width: 10%;
+    border-radius: 30px;
+    border: none;
+    margin: 5px;
+    background-color: #ffcd57;
+}
+
+.reset{
+    width: 30px;
+    padding: 0;
+}
+.box-short{
+    margin: 20px 0;
+}
+
+.hidden{
+    visibility: hidden;
+    transition: ease-in-out 0.5s;
+}
+
+.mat-icon{
+    margin: 0 !important;
+}

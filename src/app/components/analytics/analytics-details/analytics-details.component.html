@@ -1,0 +1,21 @@
+<div *ngIf="analyticsUrl.longUrl" class="analytics-details flex-col">
+    <div class="title-bar flex justify-between items-baseline">
+        <h2>Analytics Details</h2>
+        <button (click)="closeWindow.emit()"><mat-icon>clear</mat-icon></button>
+    </div>
+    <hr>
+    <a href="{{analyticsUrl.longUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.longUrl}}</p></a>
+    <a href="{{analyticsUrl.shortUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.shortUrl}}</p></a>
+    <br>
+    <h4 class="w-2/4 flex justify-between">
+        <span>Total clicks:</span>
+        <span>{{analyticsUrl.clicks}}</span>
+    </h4>
+    <div class="browser-details">
+        <h4>Browser Details:</h4>
+        <p *ngFor="let bowserItem of analyticsUrl.browser" class="w-2/4 flex justify-between">
+            <span>{{bowserItem.browserName}}:</span>
+            <span>{{bowserItem.clicks}}</span>
+        </p>
+    </div>
+</div>

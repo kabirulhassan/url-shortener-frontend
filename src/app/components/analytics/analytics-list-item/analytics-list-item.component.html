@@ -1,0 +1,7 @@
+<div class="url-card flex flex items-center justify-between">
+    <p>{{analtyicsUrl.longUrl}}</p>
+    <button (click)="selected.emit(analtyicsUrl)" class="flex gap-x-1">
+        <span>{{analtyicsUrl.clicks}}</span>
+        <mat-icon>open_in_browser</mat-icon>
+    </button>
+</div>

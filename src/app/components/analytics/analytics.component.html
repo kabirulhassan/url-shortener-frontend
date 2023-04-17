@@ -1,0 +1,18 @@
+<div class="analytics-page flex justify-evenly">
+    <div class="url-list w-2/4">
+        <h2>URL Analytics: </h2>
+        <hr>
+        <br>
+        <div class="flex flex-col" *ngFor="let url of analyticsUrls">
+            <url-shortener-frontend-analytics-list-item (selected)="selectUrl($event)"
+                [analtyicsUrl]="url"></url-shortener-frontend-analytics-list-item>
+        </div>
+    </div>
+    <div class="analytics-details w-1/4">
+        <url-shortener-frontend-analytics-details
+            [analyticsUrl]="selectedUrl"
+            (closeWindow)="closeDetails()"
+        >
+        </url-shortener-frontend-analytics-details>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<section id="home" class="flex-col flex justify-stretch h-5/6">
+    <div class="shortener flex-basis-2/4">
+        <h2>Tired of long urls ?</h2>
+        <h1 class="tagline">
+            <span>Paste.</span><span>Short.</span><span>Share.</span>
+        </h1>
+        <form #urlForm="ngForm" class="url-form">
+            <div class="url-box">
+                <input matInput required autocomplete="off" type="url" [(ngModel)]="longUrl" name="longUrl" urlShortenerFrontendUrlValidator="longUrl" placeholder="Enter a URL to shorten">
+                <button mat-button *ngIf="longUrl" class="short-btn reset" (click)="reset()"><mat-icon>refresh</mat-icon></button>
+                <button mat-button class="short-btn" [disabled]="urlForm.invalid" (click)="shortenUrl()">
+                    Short.
+                </button>
+            </div>
+        </form>
+        <div [ngClass]="{hidden: !shortUrl}" class="url-box box-short">
+            <a id="short-url" href="{{shortUrl}}" target="blank">{{shortUrl}}</a>
+            <button mat-button class="short-btn share-btn share-button" (click)="shareLink()">
+                <mat-icon>share</mat-icon>
+            </button>
+        </div>
+    </div>
+</section>

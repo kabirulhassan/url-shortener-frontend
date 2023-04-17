@@ -1,0 +1,17 @@
+<div class="p-2 flex justify-center">
+    <nav class="navbar flex justify-between flex-1 items-center">
+        <div class="nav-brand">
+            Shorten
+        </div>
+        <div class="nav-links flex gap-2 items-center">
+            <a class="hover:underline" routerLink="/" routerLinkActive="active">Home</a>
+            <a class="hover:underline" routerLink="/analytics" routerLinkActive="active">Analytics</a>
+            <a *ngIf="isAuthenticated()" (click)="logout()">
+                <button>Logout</button>
+            </a>
+            <a *ngIf="!isAuthenticated()" routerLink="/login">
+                <button>Login</button>
+            </a>
+        </div>
+    </nav>
+</div>
