@@ -22,6 +22,8 @@ import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { AnalyticsListItemComponent } from './components/analytics/analytics-list-item/analytics-list-item.component';
 import { AnalyticsDetailsComponent } from './components/analytics/analytics-details/analytics-details.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MatSidenavModule } from '@angular/material/sidenav';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +50,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    NgxSkeletonLoaderModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

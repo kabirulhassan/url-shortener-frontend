@@ -13,11 +13,30 @@
                 </button>
             </div>
         </form>
-        <div [ngClass]="{hidden: !isLoading && !shortUrl, animateurl: isLoading}"  class="url-box box-short">
-            <a id="short-url" href="{{shortUrl}}" target="blank">{{shortUrl}}</a>
-            <button [ngClass]="{hidden: !shortUrl}" mat-button class="short-btn share-btn share-button" (click)="shareLink()">
+        <div [ngClass]="{hidden: !isLoading && !shortUrl}" class="url-box box-short">
+            <ngx-skeleton-loader 
+                [theme]="{
+                    'margin.px': 0
+                }" 
+                *ngIf="!shortUrl" class="flex flex-1 items-center p-2" count="1" appearance="line" animation="pulse"
+            >
+            </ngx-skeleton-loader>
+            <ngx-skeleton-loader 
+                class="p-2 flex items-center"
+                [theme]="{
+                    'margin.px': 0
+                }"
+                *ngIf="!shortUrl" count="1" appearance="circle"
+            >
+            </ngx-skeleton-loader>
+            <a *ngIf="shortUrl" id="short-url" href="{{shortUrl}}" target="blank">{{shortUrl}}</a>
+            <button  mat-button *ngIf="shortUrl" class="short-btn share-btn share-button" (click)="shareLink()">
                 <mat-icon>share</mat-icon>
             </button>
         </div>
     </div>
 </section>
+
+<!--  -->
+
+<!-- [ngClass]="{hidden: !shortUrl}" -->

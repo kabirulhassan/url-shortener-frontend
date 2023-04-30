@@ -1,3 +1,5 @@
+$width__sidebar: 20rem;
+
 h2{
     font-size: 32px;
     font-weight: 400;
@@ -28,4 +30,20 @@ h2{
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
+}
+
+.analytics-details{
+    width: $width__sidebar !important;
+    transition: .7s;
+    z-index: 1;
+    transform: translateX(0);
+    margin: 5px;
+    
+    &.isclosed {
+      transform: translateX($width__sidebar);
+    }
+  }
+
+.analytics-page{
+    overflow-x: hidden;
 }

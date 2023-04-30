@@ -1,18 +1,29 @@
-<div class="analytics-page flex justify-evenly">
-    <div class="w-2/4 flex flex-col">
+<div class="analytics-page flex justify-center md:justify-between md:ml-8">
+    <div class="w-11/12 md:w-3/4 lg:w-2/4  flex flex-col ">
         <h2>URL Analytics: </h2>
         <hr>
-        <url-shortener-frontend-loader *ngIf="isLoading"></url-shortener-frontend-loader>
+        <ngx-skeleton-loader 
+            *ngIf="isLoading"
+            count="10" animation="pulse"
+            [theme]="{
+                backgroundColor: '#e2e2e2',
+            }"
+        >
+        </ngx-skeleton-loader>
         <div class="flex flex-col url-list" id="style-1">
             <url-shortener-frontend-analytics-list-item *ngFor="let url of analyticsUrls" (selected)="selectUrl($event)"
                 [analtyicsUrl]="url"></url-shortener-frontend-analytics-list-item>
         </div>
     </div>
-    <div class="analytics-details w-1/4">
-        <url-shortener-frontend-analytics-details
-            [analyticsUrl]="selectedUrl"
-            (closeWindow)="closeDetails()"
-        >
-        </url-shortener-frontend-analytics-details>
-    </div>
+    <mat-drawer-container>
+        <mat-drawer #drawer position="end"  mode="side" [opened]="selectedUrl!==emptyAnalyticsUrl">
+          <div *ngIf="selectedUrl!==emptyAnalyticsUrl" [ngClass]="{isclosed: selectedUrl===emptyAnalyticsUrl}" class="analytics-details isclosed">
+            <url-shortener-frontend-analytics-details
+                [analyticsUrl]="selectedUrl"
+                (closeWindow)="closeDetails()"
+            >
+            </url-shortener-frontend-analytics-details>
+        </div>
+        </mat-drawer>
+    </mat-drawer-container>
 </div>

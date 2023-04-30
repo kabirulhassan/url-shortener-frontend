@@ -37,6 +37,7 @@
 }
 
 .url-box{
+    height: 60px;
     display: flex;
     flex-direction: row;
     width: 70%;
@@ -105,4 +106,8 @@
     100%{
         width: 20%;
     }
+}
+
+.skeleton-loader {
+    margin: 0;
 }
