@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { of, catchError, map } from 'rxjs';
+import { of, catchError, map, finalize } from 'rxjs';
 import { AnalyticsUrl } from 'src/app/core/models/analytics-url';
 import { AnalyticsService } from 'src/app/core/services/analytics.service';
 import { environment } from '../../../environments/environment';
@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./analytics.component.scss'],
 })
 export class AnalyticsComponent implements OnInit {
+  isLoading = false;
   analyticsUrls: AnalyticsUrl[] = [];
   emptyAnalyticsUrl: AnalyticsUrl = {
     longUrl: '',
@@ -22,6 +23,7 @@ export class AnalyticsComponent implements OnInit {
   constructor(private analyticsService: AnalyticsService) {}
 
   fetchAnalytics() {
+    this.isLoading = true;
     this.analyticsService
       .getAnalytics()
       .pipe(
@@ -37,6 +39,9 @@ export class AnalyticsComponent implements OnInit {
             );
           }
           return data;
+        }),
+        finalize(() => {
+          this.isLoading = false;
         })
       )
       .subscribe((data) => {

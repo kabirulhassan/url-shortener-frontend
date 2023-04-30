@@ -4,12 +4,12 @@
     flex: 1;
     align-items: center;
     justify-content:end;
-    background-color: black;
     height: 100%;
     padding-bottom: 4rem;
 }
 .shortener>h2{
-    color: #ffcd57;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.6);
     text-align: left;
     position: relative;
     justify-self: center;
@@ -18,7 +18,7 @@
 }
 
 .tagline{
-    color: white;
+    color: rgba($color: #000000, $alpha: 0.7);
     font-size: 3rem;
     padding: 20px 0;
     word-break: keep-all;
@@ -43,6 +43,7 @@
     border-radius: 30px;
     background-color: white;
     justify-content: space-between;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .url-box>input{
@@ -54,11 +55,13 @@
 }
 .url-box>a{
     vertical-align: middle;
-    max-width: 90%;
+    width: 90%;
     margin: auto 5px;
     color: black;
     padding-left: 2rem;
     word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -79,6 +82,10 @@
     margin: 20px 0;
 }
 
+.animateurl{
+    animation: shrink-grow 2s infinite both;
+}
+
 .hidden{
     visibility: hidden;
     transition: ease-in-out 0.5s;
@@ -86,4 +93,16 @@
 
 .mat-icon{
     margin: 0 !important;
+}
+
+@keyframes shrink-grow{
+    0%{
+        width: 20%;
+    }
+    50%{
+        width: 70%;
+    }
+    100%{
+        width: 20%;
+    }
 }

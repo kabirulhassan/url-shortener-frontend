@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { catchError, of } from 'rxjs';
+import { catchError, finalize, of } from 'rxjs';
 import { ShareLinkService } from 'src/app/core/services/share-link.service';
 import { ShortenService } from 'src/app/core/services/shorten.service';
 import { environment } from '../../../environments/environment';
@@ -10,11 +10,13 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  isLoading = false;
   longUrl = '';
   shortUrl = '';
   constructor(private shortenService: ShortenService, private shareLinkService: ShareLinkService) {}
 
   shortenUrl() {
+    this.isLoading = true;
     console.log('URL: ', this.longUrl);
     this.shortenService
       .getShortUrl(this.longUrl)
@@ -22,6 +24,9 @@ export class HomeComponent {
         catchError((error) => {
           console.log('Error: ', error);
           return of (null);
+        }),
+        finalize(() => {
+          this.isLoading = false;
         })
       )
       .subscribe((response) => {

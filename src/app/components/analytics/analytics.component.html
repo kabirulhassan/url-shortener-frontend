@@ -1,10 +1,10 @@
 <div class="analytics-page flex justify-evenly">
-    <div class="url-list w-2/4">
+    <div class="w-2/4 flex flex-col">
         <h2>URL Analytics: </h2>
         <hr>
-        <br>
-        <div class="flex flex-col" *ngFor="let url of analyticsUrls">
-            <url-shortener-frontend-analytics-list-item (selected)="selectUrl($event)"
+        <url-shortener-frontend-loader *ngIf="isLoading"></url-shortener-frontend-loader>
+        <div class="flex flex-col url-list" id="style-1">
+            <url-shortener-frontend-analytics-list-item *ngFor="let url of analyticsUrls" (selected)="selectUrl($event)"
                 [analtyicsUrl]="url"></url-shortener-frontend-analytics-list-item>
         </div>
     </div>

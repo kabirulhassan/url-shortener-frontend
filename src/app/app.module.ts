@@ -21,6 +21,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { AnalyticsListItemComponent } from './components/analytics/analytics-list-item/analytics-list-item.component';
 import { AnalyticsDetailsComponent } from './components/analytics/analytics-details/analytics-details.component';
+import { LoaderComponent } from './components/loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { AnalyticsDetailsComponent } from './components/analytics/analytics-deta
     AnalyticsComponent,
     AnalyticsListItemComponent,
     AnalyticsDetailsComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

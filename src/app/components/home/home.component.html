@@ -13,9 +13,9 @@
                 </button>
             </div>
         </form>
-        <div [ngClass]="{hidden: !shortUrl}" class="url-box box-short">
+        <div [ngClass]="{hidden: !isLoading && !shortUrl, animateurl: isLoading}"  class="url-box box-short">
             <a id="short-url" href="{{shortUrl}}" target="blank">{{shortUrl}}</a>
-            <button mat-button class="short-btn share-btn share-button" (click)="shareLink()">
+            <button [ngClass]="{hidden: !shortUrl}" mat-button class="short-btn share-btn share-button" (click)="shareLink()">
                 <mat-icon>share</mat-icon>
             </button>
         </div>
