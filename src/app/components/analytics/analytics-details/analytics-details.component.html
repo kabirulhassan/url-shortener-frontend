@@ -5,8 +5,18 @@
     </div>
     <hr>
     <div class="flex flex-col gap-2">
-        <a href="{{analyticsUrl.longUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.longUrl}}</p></a>
-        <a href="{{analyticsUrl.shortUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.shortUrl}}</p></a>
+        <div class="flex gap-1 items-center justify-between w-3/4">
+            <a href="{{analyticsUrl.longUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.longUrl}}</p></a>
+            <button  mat-button class="short-btn share-btn share-button" (click)="shareLink(analyticsUrl.longUrl)">
+                <mat-icon>share</mat-icon>
+            </button>
+        </div>
+        <div class="flex gap-1 items-center justify-between w-3/4">
+            <a href="{{analyticsUrl.shortUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.shortUrl}}</p></a>
+            <button  mat-button class="short-btn share-btn share-button" (click)="shareLink(analyticsUrl.shortUrl)">
+                <mat-icon>share</mat-icon>
+            </button>
+        </div>
     </div>
     <h4 class="flex justify-between w-2/4">
         <span>Total clicks:</span>

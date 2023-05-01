@@ -7,7 +7,5 @@
             placeholder="Password">
         <button mat-raised-button color="primary" [disabled]="registerForm.invalid"
             (click)="register()">Register</button>
-        <pre>{{registerForm.value | json}}</pre>
-        <pre>{{registerForm.errors | json}}</pre>
     </form>
 </div>

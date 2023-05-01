@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShareLinkService {
 
-
-  sleep(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+  constructor(private _snackBar: MatSnackBar) { }
 
   async copyToClipboard(url: string) {
       navigator.clipboard.writeText(url);
@@ -28,6 +26,10 @@ export class ShareLinkService {
     } else {
       console.log('Share is not supported');
       this.copyToClipboard(url);
+      this._snackBar.open('Copied to clipboard', 'Close', {
+        duration: 3000,
+        panelClass: ['theme-snackbar']
+      });
     }
   }
 }

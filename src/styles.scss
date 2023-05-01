@@ -53,3 +53,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.theme-snackbar{
+  border-radius: 30px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+  div{
+    background-color: white !important;
+    border-radius: 30px !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+  }
+  button{
+    background-color: #ffcd57 !important;
+    color: #000000 !important;
+    border-radius: 20px !important;
+  }
+}
