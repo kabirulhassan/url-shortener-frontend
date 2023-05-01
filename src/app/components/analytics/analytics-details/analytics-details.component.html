@@ -1,13 +1,14 @@
-<div *ngIf="analyticsUrl.longUrl" class="analytics-details flex-col">
+<div *ngIf="analyticsUrl.longUrl" class="analytics-details flex flex-col w-full">
     <div class="title-bar flex justify-between items-baseline">
         <h2>Analytics Details</h2>
         <button (click)="closeWindow.emit()"><mat-icon>clear</mat-icon></button>
     </div>
     <hr>
-    <a href="{{analyticsUrl.longUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.longUrl}}</p></a>
-    <a href="{{analyticsUrl.shortUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.shortUrl}}</p></a>
-    <br>
-    <h4 class="w-2/4 flex justify-between">
+    <div class="flex flex-col gap-2">
+        <a href="{{analyticsUrl.longUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.longUrl}}</p></a>
+        <a href="{{analyticsUrl.shortUrl}}" target="_blank" class="hover:underline"><p>{{analyticsUrl.shortUrl}}</p></a>
+    </div>
+    <h4 class="flex justify-between w-2/4">
         <span>Total clicks:</span>
         <span>{{analyticsUrl.clicks}}</span>
     </h4>

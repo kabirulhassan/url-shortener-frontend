@@ -8,8 +8,8 @@ h2{
 
 .url-list{
     overflow-y: auto;
-    flex: 0.8;
     margin-top: 10px;
+    height: 80vh;
 }
 
 #style-1::-webkit-scrollbar-track
@@ -32,18 +32,16 @@ h2{
 	background-color: #555;
 }
 
-.analytics-details{
-    width: $width__sidebar !important;
-    transition: .7s;
-    z-index: 1;
-    transform: translateX(0);
-    margin: 5px;
-    
-    &.isclosed {
-      transform: translateX($width__sidebar);
-    }
-  }
+.mat-drawer-container{
+    background: none;
+}
+
+.mat-drawer{
+  border-radius: 20px;
+  margin: 5px;
+  box-shadow:  0 0 5px rgba(0, 0, 0, 0.4);
+}
 
 .analytics-page{
-    overflow-x: hidden;
+    overflow: hidden;
 }

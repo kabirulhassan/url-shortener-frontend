@@ -1,5 +1,6 @@
-<div class="analytics-page flex justify-center md:justify-between md:ml-8">
-    <div class="w-11/12 md:w-3/4 lg:w-2/4  flex flex-col ">
+<div class="analytics-page flex flex-col justify-center">
+    <mat-drawer-container class="md:pl-8">
+    <div class="w-screen md:w-3/4 lg:w-2/4  flex flex-col px-8">
         <h2>URL Analytics: </h2>
         <hr>
         <ngx-skeleton-loader 
@@ -15,9 +16,8 @@
                 [analtyicsUrl]="url"></url-shortener-frontend-analytics-list-item>
         </div>
     </div>
-    <mat-drawer-container>
-        <mat-drawer #drawer position="end"  mode="side" [opened]="selectedUrl!==emptyAnalyticsUrl">
-          <div *ngIf="selectedUrl!==emptyAnalyticsUrl" [ngClass]="{isclosed: selectedUrl===emptyAnalyticsUrl}" class="analytics-details isclosed">
+        <mat-drawer #drawer position="end"  mode="side" [opened]="selectedUrl!==emptyAnalyticsUrl" class="w-10/12 md:w-1/2 ">
+          <div *ngIf="selectedUrl!==emptyAnalyticsUrl" class="analytics-details">
             <url-shortener-frontend-analytics-details
                 [analyticsUrl]="selectedUrl"
                 (closeWindow)="closeDetails()"
