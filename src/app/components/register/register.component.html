@@ -1,11 +1,17 @@
-<div class="flex justify-center">
+<div class="flex justify-center h-full items-center">
     <form #registerForm="ngForm" class="flex flex-col basis-2/4 register-form">
         <input matInput required autocomplete="off" type="text" [(ngModel)]="fullName" name="fullName"
             placeholder="First Name">
         <input matInput required autocomplete="off" type="email" [(ngModel)]="email" name="email" placeholder="Email">
         <input matInput required autocomplete="off" type="password" [(ngModel)]="password" name="password"
             placeholder="Password">
-        <button mat-raised-button color="primary" [disabled]="registerForm.invalid"
-            (click)="register()">Register</button>
+        <button 
+            mat-raised-button 
+            color="primary" 
+            (click)="register()"
+        >
+            Register
+        </button>
+        <p [ngClass]="{hidden: !showWarning || !registerForm.invalid}">*All the fields are mandatory</p>
     </form>
 </div>

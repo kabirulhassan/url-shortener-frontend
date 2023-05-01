@@ -25,13 +25,14 @@ export class AuthService {
       catchError((err) => {
         console.log('Error: ', err);
         this._snackBar.open('Invalid email or password', 'Close', {
-          duration: 3000
+          duration: 3000,
+          panelClass: ['theme-snackbar','error-snackbar']
         });
-        return of(err);
+        throw err;
       })
     )
     .subscribe(
-      (res) => {
+      (res: any) => {
         console.log('Response: ', res);
         if(res.accessToken) {
           console.log('Access Token: ', res.accessToken);
@@ -54,6 +55,31 @@ export class AuthService {
       panelClass: ['theme-snackbar']
     });
     // this._isLoggedIn$.next(false);
+  }
+
+  register(name: string, email: string, password: string){
+    const body = {name, email, password};
+    return this.apiService.post('/users/register', body)
+    .pipe(
+      catchError((err) => {
+        console.log('Error: ', err);
+        this._snackBar.open(`Error: ${err.error? err.error.title+' '+err.error.message : 'Please check credentials'}`, 'Close', {
+          panelClass: ['theme-snackbar', 'error-snackbar']
+        });
+        throw err;
+      }
+      )
+    )
+    .subscribe(
+      (res) => {
+        console.log('Response: ', res);
+        this._snackBar.open('Registration successful', 'Close', {
+          duration: 3000,
+          panelClass: ['theme-snackbar']
+        });
+        this.router.navigate(['/login']);
+      }
+    );
   }
 
   isAuthenticated() {

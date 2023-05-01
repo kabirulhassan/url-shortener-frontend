@@ -3,6 +3,7 @@ import { catchError, finalize, of } from 'rxjs';
 import { ShareLinkService } from 'src/app/core/services/share-link.service';
 import { ShortenService } from 'src/app/core/services/shorten.service';
 import { environment } from '../../../environments/environment';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'url-shortener-frontend-home',
@@ -13,7 +14,7 @@ export class HomeComponent {
   isLoading = false;
   longUrl = '';
   shortUrl = '';
-  constructor(private shortenService: ShortenService, private shareLinkService: ShareLinkService) {}
+  constructor(private shortenService: ShortenService, private shareLinkService: ShareLinkService, private _snackService: MatSnackBar) {}
 
   shortenUrl() {
     this.isLoading = true;
@@ -23,6 +24,9 @@ export class HomeComponent {
       .pipe(
         catchError((error) => {
           console.log('Error: ', error);
+          this._snackService.open('Error: ', JSON.stringify(error), {
+            duration: 2000,
+          });
           return of (null);
         }),
         finalize(() => {
