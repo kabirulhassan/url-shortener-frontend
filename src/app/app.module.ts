@@ -25,6 +25,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatInputModule,
     NgxSkeletonLoaderModule,
     MatSidenavModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

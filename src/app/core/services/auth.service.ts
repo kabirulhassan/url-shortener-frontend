@@ -20,6 +20,9 @@ export class AuthService {
   login(email: string, password: string) {
     const body = {email, password};
     console.log('Body: ', body);
+    this._snackBar.open('Logging in, please wait...', 'Close', {
+      panelClass: ['theme-snackbar']
+    });
     return this.apiService.post('/users/login', body)
     .pipe(
       catchError((err) => {
@@ -59,6 +62,9 @@ export class AuthService {
 
   register(name: string, email: string, password: string){
     const body = {name, email, password};
+    this._snackBar.open('Registration in progress, please wait...', 'Close', {
+      panelClass: ['theme-snackbar']
+    });
     return this.apiService.post('/users/register', body)
     .pipe(
       catchError((err) => {
