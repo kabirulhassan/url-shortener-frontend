@@ -1,6 +1,6 @@
 # UrlShortenerFrontend
 
-https://fantastic-sprite-3695fe.netlify.app/
+https://shortitkh.netlify.app/
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
